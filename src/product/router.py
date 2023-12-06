@@ -15,12 +15,31 @@ router = APIRouter(
 current_user = fastapi_users.current_user(active=True)
 
 
-@router.get("/")
+@router.get("/get_specific_product/")
 async def get_specific_product(product_name: str, session: AsyncSession = Depends(get_async_session),
                                user: User = Depends(current_user)):
     try:
 
         query = select(product).where(product.c.name == product_name)
+        result = await session.execute(query)
+        return {
+            "status": "success",
+            "data": result.mappings().all()
+        }
+
+    except Exception:
+        raise HTTPException(status_code=500, detail={
+            "status": "error",
+            "data": None
+        })
+
+
+@router.get("/get_products")
+async def get_products(session: AsyncSession = Depends(get_async_session),
+                               user: User = Depends(current_user)):
+    try:
+
+        query = select(product).where(product.c.is_active)
         result = await session.execute(query)
         return {
             "status": "success",
