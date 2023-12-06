@@ -5,6 +5,7 @@ from src.auth.models import User
 from src.auth.schemas import UserRead, UserCreate
 
 from src.product.router import router as router_product
+from src.category.router import router as router_category
 
 app = FastAPI(
     title="Online_Shop App"
@@ -23,5 +24,6 @@ app.include_router(
 )
 
 app.include_router(router_product)
+app.include_router(router_category)
 
 current_user = fastapi_users.current_user(active=True)

@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, Integer, String, MetaData, Boolean, DateTime, ForeignKey
+from sqlalchemy import Table, Column, Integer, String, MetaData, Boolean, DateTime, ForeignKey, Float
 
 from src.category.models import category
 metadata = MetaData()
@@ -8,7 +8,7 @@ product = Table(
     metadata,
     Column("id", Integer, primary_key=True),
     Column("category", Integer, ForeignKey(category.c.id)),
-    Column("price", String),
+    Column("price", Float),
     Column("name", String),
     Column("description", String, nullable=True),
     Column("created_at", DateTime),

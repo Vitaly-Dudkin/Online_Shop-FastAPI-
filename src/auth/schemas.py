@@ -1,7 +1,7 @@
 from typing import Optional
 
 from fastapi_users import schemas
-from pydantic import field_validator, EmailStr, Field
+from pydantic import field_validator, EmailStr, Field, validator
 from src.auth.utils import phone_number_regex, check_password_regex
 
 
@@ -43,11 +43,12 @@ class UserCreate(schemas.BaseUserCreate):
                              "uppercase character, at least 1 special character $%&!")
         return password
 
-    # @field_validator('confirm_password')
-    # def confirm_password(cls, confirm_password):
-    #     if confirm_password != cls.password:
-    #         raise ValueError("confirm_password doesn't match password")
-    #     return confirm_password
+    @field_validator('confirm_password')
+    def confirm_password(cls, confirm_password, info):
+        if confirm_password != info.data['password']:
+            raise ValueError("confirm_password doesn't match password")
+        return confirm_password
+
 
 # class UserUpdate(schemas.BaseUserCreate):
 #     username: str

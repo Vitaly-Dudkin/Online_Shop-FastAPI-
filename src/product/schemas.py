@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class ProductCreate(BaseModel):
     id: int
-    user_id: int
+    category: int
     price: float = Field(ge=0)
     name: str = Field(max_length=50)
     description: str
