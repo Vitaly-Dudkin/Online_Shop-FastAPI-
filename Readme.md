@@ -1,4 +1,4 @@
-Проект
+ # Проект
 
 В результате выполнения задачи будет разработан API backend на языке Python с использованием одной СУБД - PostgreSQL.
 
@@ -35,4 +35,4 @@ cd pythonProject
 
 Запуск проекта
 
-src.main:app --reload
+```src.main:app --reload```
