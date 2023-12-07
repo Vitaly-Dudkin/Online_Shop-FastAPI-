@@ -36,7 +36,7 @@ async def get_categories(session: AsyncSession = Depends(get_async_session),
 @router.post("/")
 async def add_specific_category(new_operation: CategoryCreate, session: AsyncSession = Depends(get_async_session),
                                 user: User = Depends(current_user)):
-    stmt = insert(category).values(**new_operation.dict())
+    stmt = insert(category).values(**new_operation.model_dump())
     await session.execute(stmt)
     await session.commit()
     return {
