@@ -9,6 +9,7 @@ class ProductCreate(BaseModel):
     price: float = Field(ge=0)
     name: str = Field(max_length=50)
     description: str
+    quantity: int
     created_at: datetime
     updated_at: datetime
     is_active: bool

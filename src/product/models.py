@@ -10,6 +10,7 @@ product = Table(
     Column("category", Integer, ForeignKey(category.c.id)),
     Column("price", Float),
     Column("name", String),
+    Column("quantity", Integer),
     Column("description", String, nullable=True),
     Column("created_at", DateTime),
     Column("updated_at", DateTime),
