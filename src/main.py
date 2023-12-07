@@ -1,7 +1,6 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
 
 from src.auth.base_config import auth_backend, fastapi_users
-from src.auth.models import User
 from src.auth.schemas import UserRead, UserCreate
 
 from src.product.router import router as router_product
