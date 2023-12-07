@@ -11,6 +11,7 @@ cffi==1.16.0
 charset-normalizer==3.3.0
 cleo==2.1.0
 click==8.1.7
+coverage==7.3.2
 crashtest==0.4.1
 cryptography==41.0.4
 distlib==0.3.7
@@ -63,6 +64,7 @@ PyJWT==2.8.0
 pyproject_hooks==1.0.0
 pytest==7.4.3
 pytest-asyncio==0.23.2
+pytest-cov==4.1.0
 python-dotenv==1.0.0
 python-multipart==0.0.6
 PyYAML==6.0.1
